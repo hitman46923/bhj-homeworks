@@ -1,6 +1,6 @@
 let sliders = document.querySelectorAll('.slider__item');
-let arrowPrev = document.querySelector('.slider__arrow_prev');
-let arrowNext = document.querySelector('.slider__arrow_next');
+let arrowNext = document.querySelector('.slider__arrow_prev');
+let arrowPrev = document.querySelector('.slider__arrow_next');
 
 let sliderShow = (index) => {
     for (let i = 0; i < sliders.length; i++) {
