@@ -1,8 +1,6 @@
 let sliders = document.querySelectorAll('.slider__item');
 let arrowPrev = document.querySelector('.slider__arrow_prev');
 let arrowNext = document.querySelector('.slider__arrow_next');
-let counter = 0;
-
 
 let sliderShow = (index) => {
     for (let i = 0; i < sliders.length; i++) {
@@ -14,22 +12,14 @@ let sliderShow = (index) => {
 
     sliders[index].classList.add('slider__item_active');
 
-
-
-
 }
 
 
 let prevSlide = () => {
 
-    counter++;
-    if (counter >= sliders.length) {
-        counter = 0;
-    }
-
-
-    sliderShow(counter);
-
+    let currentIndex = Array.from(sliders).findIndex(slider => slider.classList.contains('slider__item_active'));
+    let newIndex  = (currentIndex + 1) % sliders.length;
+    sliderShow(newIndex);
 
 }
 
@@ -38,14 +28,9 @@ let prevSlide = () => {
 
 let nextSlide = () => {
 
-    counter--;
-    if (counter < 0) {
-        counter = sliders.length - 1;
-    }
-
-
-    sliderShow(counter);
-
+    let currentIndex = Array.from(sliders).findIndex(slide => slide.classList.contains('slider__item_active'));
+    let newIndex = (currentIndex - 1 + sliders.length) % sliders.length;
+    sliderShow(newIndex);
 
 }
 
